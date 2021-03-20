@@ -14,5 +14,19 @@
             "enabled": true,
             "counter": 3
         }
+    ],
+    "account" : [
+        {
+            "id": 1,
+            "login": "admin",
+            "password": "admin",
+            "links": 1
+        },
+        {
+            "id": 2,
+            "login": "alice",
+            "password": "alice",
+            "links": 2
+        }
     ]
 }
