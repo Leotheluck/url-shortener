@@ -1,0 +1,18 @@
+{
+    "shortened" : [
+        {
+            "id": 1,
+            "link": "https://shop.spreadshirt.fr/gilles-dor-/all",
+            "short": "gilles-shop",
+            "enabled": true,
+            "counter": 199
+        },
+        {
+            "id": 2,
+            "link": "https://www.linkedin.com/in/francois-olona/",
+            "short": "hTzo02px",
+            "enabled": true,
+            "counter": 3
+        }
+    ]
+}
