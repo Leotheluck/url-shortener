@@ -8,4 +8,7 @@
 
     echo $shortened[0]["id"];
 
+    
 ?>
+
+<input class="inputms">mon url corute</input>
