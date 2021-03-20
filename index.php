@@ -8,5 +8,6 @@
 </head>
 <body>
     <div>mims</div>
+    <div>mims tout plein même</div>
 </body>
 </html>
