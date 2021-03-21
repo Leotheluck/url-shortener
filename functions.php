@@ -10,5 +10,6 @@
 
     
 ?>
-
-<input class="inputms">mon url corute</input>
+</br>
+<input type="text" name="full-url" class="url-input" placeholder="your url...">Your url</input>
+<input type="submit" value="submit">
