@@ -141,3 +141,37 @@ body
     width: 100%;
     height: 12vh;
 }
+
+.popup
+{
+    position: absolute;
+    width: 30vw;
+    margin-left: 35vw;
+    top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 40px;
+    height: 50px;
+    background: #EE4266;
+    animation: popup 4s ease-in-out;
+}
+
+@keyframes popup {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(70px);
+    }
+    80% {
+        transform: translateY(70px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

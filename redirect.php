@@ -35,6 +35,6 @@
     if ($urlEnabled == 1) {
         header("Location: ".$destination);
     } else {
-        echo "this link has not been enabled";
+        echo "<div class='popup'>This link has not been enabled!</div>";
     };
 ?>
