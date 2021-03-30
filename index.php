@@ -22,7 +22,7 @@
         $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if ($_GET["popup"] == "not-enabled") {
-            echo "<div class='popup'>This link has not been enabled!</div>";
+            echo "<div class='popup'>Ce lien n'est pas activé !</div>";
         }
 
         if (isset($_GET["url"])) {
@@ -30,9 +30,24 @@
         }
     ?>
 
+    <div class="side-panel">
+        <div class="hide">
+            <div class="button"></div>
+        </div>
+        <?php
+            // foreach(array_reverse($urls, true) as $url) {
+            //     echo "<p>wmln.me/".$url["url_code"]."</p>";
+            // };
+        ?>
+    </div>
+
     <div class="container">
         <div class="main">
-            <div class="header"></div>
+            <div class="header">
+                <form class="disconnect" method="post">
+                    <input type="submit" value="Se déconnecter"></input>
+                </form>
+            </div>
             <div class="shortener">
                 <a href="" class="logo"></a>
                 <form action="./publish.db.php" class="inputs" method="post">
@@ -45,14 +60,9 @@
                     <button class="submit-input" type="submit">Go !</button>
                 </form>
             </div>
-            <div class="scroll"></div>
-        </div>
-        <div class="side-panel">
-            <?php
-                foreach(array_reverse($urls, true) as $url) {
-                    echo "<p>wmln.me/".$url["url_code"]."</p>";
-                };
-            ?>
+            <div class="scroll">
+
+            </div>
         </div>
     </div>
 
