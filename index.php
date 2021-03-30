@@ -4,19 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WMLN®</title>
     <meta name="description" content="free url stuff for my very short friends">
     <link rel="stylesheet" href="./styles/main.css">
 </head>
-    <?php
-       require "./functions.php"; 
-    ?>
 <body>
-    <div>mims</div>
-    <div>mims tout plein même</div>
-    <div>haha vous parlez de moi ou quoi les gars ^^</div>
-    <div>Les gars ?</div>
-    <div>^^</div>
+    <?php
+        include "./db.php";
+        include "./functions.php"; 
+        require_once "./redirect.php";
+
+        $stmt = $pdo->prepare("
+            SELECT * 
+            FROM urls
+            ");
+        $stmt->execute();
+        $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+
+    <div class="container">
+        <div class="main">
+            <div class="header"></div>
+            <div class="shortener">
+                <a href="" class="logo"></a>
+                <form action="./publish.db.php" class="inputs" method="post">
+                    <input class="url-input" type="text" name="url-origin" placeholder="Collez votre URL ici" value=
+                        <?php
+                            if (!empty($_GET)) {
+                                echo "localhost:8888/back-end/url-shortener/?code=".$_GET["published"];
+                            }
+                        ?>></input>
+                    <button class="submit-input" type="submit">Go !</button>
+                </form>
+            </div>
+            <div class="scroll"></div>
+        </div>
+        <div class="side-panel">
+            <?php
+                foreach(array_reverse($urls, true) as $url) {
+                    echo "<p>wmln.me/".$url["url_code"]."</p>";
+                };
+            ?>
+        </div>
+    </div>
+
+    </br>
+    </br>
+    
+    <form action="./publish.db.php" method="post">
+        <input type="text" name="url-origin" value="haha">Votre url</input>
+        <button type="submit">Publier</button>
+    </form>
+
     <script src="./scripts/main.js"></script>
 </body>
 </html>

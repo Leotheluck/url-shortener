@@ -2,3 +2,142 @@ body
 {
     margin: 0;
 }
+
+::selection
+{
+    background: #d34161;
+}
+
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    background: #EE4266;
+    display: flex;
+}
+
+.container .main
+{
+    width: 75vw;
+    height: 100vh;
+    background: #fff;
+}
+
+.container .main .header
+{
+    width: 100%;
+    height: 12vh;
+}
+
+.container .main .shortener
+{
+    width: 100%;
+    height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .main .shortener .logo
+{
+    width: 450px;
+    height: 165px;
+    background-image: url("https://i.imgur.com/pvFEuiU.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+    transition: .2s;
+}
+
+.container .main .shortener .logo:hover
+{
+    opacity: 90%;
+    transform: scale(.99);
+}
+
+.container .main .shortener .inputs
+{
+    width: 450px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .main .shortener .inputs .url-input
+{
+    width: 280px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    height: 38px;
+    background: #ebb0bb;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: text;
+    overflow: hidden;
+    opacity: 100%;
+    transition: .2s;
+}
+
+::placeholder
+{
+    color: #876a70;
+}
+
+.container .main .shortener .inputs .url-input:hover
+{
+    opacity: 90%;
+}
+
+.container .main .shortener .inputs .url-input:active
+{
+    transform: scale(.95);
+}
+
+.container .main .shortener .inputs .submit-input
+{
+    width: 100px;
+    height: 40px;
+    background: #00CC66;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container .main .shortener .inputs .submit-input:hover
+{
+    transform: scale(0.95);
+    background: #14e27b;
+}
+
+.container .main .shortener .inputs .submit-input:active
+{
+    transform: scale(0.9);
+    background: #29f18d;
+}
+
+.container .main .scroll
+{
+    width: 100%;
+    height: 12vh;
+}

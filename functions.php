@@ -1,15 +1,9 @@
 <?php
+    // echo "workings";
 
-    echo "trop trop mims les potes ça va ou quoi haha ^^</br>";
-
-    $json = file_get_contents("./db.json");
-    $data = json_decode($json, true);
-    $shortened = $data["shortened"];
-
-    echo $shortened[0]["id"];
+    $secret = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+               'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+               '0','1','2','3','4','5','6','7','8','9'];
 
     
 ?>
-</br>
-<input type="text" name="full-url" class="url-input" placeholder="your url...">Your url</input>
-<input type="submit" value="submit">
