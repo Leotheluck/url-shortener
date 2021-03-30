@@ -12,7 +12,7 @@
     <?php
         include "./db.php";
         include "./functions.php"; 
-        require_once "./redirect.php";
+        // require_once "./redirect.php";
 
         $stmt = $pdo->prepare("
             SELECT * 
@@ -20,6 +20,14 @@
             ");
         $stmt->execute();
         $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($_GET["popup"] == "not-enabled") {
+            echo "<div class='popup'>This link has not been enabled!</div>";
+        }
+
+        if (isset($_GET["url"])) {
+            header("Location: ./redirect.php?code=".$_GET["url"]);
+        }
     ?>
 
     <div class="container">
@@ -31,7 +39,7 @@
                     <input class="url-input" type="text" name="url-origin" placeholder="Collez votre URL ici" value=
                         <?php
                             if (!empty($_GET)) {
-                                echo "localhost:8888/back-end/url-shortener/?code=".$_GET["published"];
+                                echo "localhost:8888/back-end/url-shortener/".$_GET["published"];
                             }
                         ?>></input>
                     <button class="submit-input" type="submit">Go !</button>

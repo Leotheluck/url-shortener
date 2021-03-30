@@ -1,4 +1,6 @@
 <?php
+    include "./db.php";
+
     $stmt = $pdo->prepare("
         SELECT * 
         FROM urls
@@ -35,6 +37,6 @@
     if ($urlEnabled == 1) {
         header("Location: ".$destination);
     } else {
-        echo "<div class='popup'>This link has not been enabled!</div>";
+        header("Location: ./?popup=not-enabled");
     };
 ?>
