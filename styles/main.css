@@ -3,7 +3,7 @@
 body
 {
     margin: 0;
-    background: #dddddd
+    background: #FBF5F3;
 }
 
 ::selection
@@ -15,7 +15,7 @@ body
 {
     width: 100vw;
     height: 100vh;
-    background: #fff;
+    background: #FBF5F3;
     display: flex;
     justify-content: center;
 }
@@ -25,7 +25,7 @@ body
     width: 75vw;
     margin-right: 25vw;
     height: 100vh;
-    background: #fff;
+    background: #FBF5F3;
     transition: all .7s;
 }
 
@@ -248,4 +248,196 @@ body
     background-repeat: no-repeat;
     background-image: url("https://i.imgur.com/Q4zo1MN.png");
     transform: rotateY(180deg) scale(.95);
+}
+
+/* Modifications de François */
+
+.logsInputs
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .main .shortener .inputs .logs-inputs
+{
+    width: 180px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    height: 38px;
+    background: #ebb0bb;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: text;
+    overflow: hidden;
+    opacity: 100%;
+    transition: .2s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+    box-shadow: 0 0 0 30px #ebb0bb inset !important;
+}
+
+::placeholder
+{
+    color: #876a70;
+}
+
+.container .main .shortener .inputs .logs-inputs:active
+{
+    transform: scale(.95);
+}
+
+.container .main .shortener .inputs .connectButton
+{
+    width: 160px;
+    height: 40px;
+    background: #00CC66;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FBF5F3;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container .main .shortener .inputs .connectButton:hover
+{
+    transform: scale(0.95);
+    background: #14e27b;
+}
+
+.container .main .shortener .inputs .connectButton:active
+{
+    transform: scale(0.9);
+    background: #29f18d;
+}
+
+.container .main .scroll
+{
+    width: 100%;
+    height: 12vh;
+}
+
+.container .main .shortener .logLink{
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    color: #00CC66;
+    font-size: 12px;
+}
+
+.container .main .shortener .logLink:hover{
+    text-decoration: underline;
+    color: #00CC66;
+}
+
+.container .main .shortener .loginPage{
+    display: flex;
+    flex-direction: column;
+}
+
+.container .main .shortener .loginPage .logsInputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0 5px 0;
+}
+
+.container .main .shortener .loginPage .logZone{
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/* ------------------- */
+
+.container .main .shortener .SigninPage{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.container .main .shortener .SigninPage input{
+    width: 410px;
+    margin: 5px 0 5px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    height: 38px;
+    background: #ebb0bb;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: text;
+    overflow: hidden;
+    opacity: 100%;
+    transition: .2s;
+}
+
+.container .main .shortener input.signinButton
+{
+    width: 225px;
+    height: 40px;
+    background: #00CC66;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FBF5F3;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container .main .shortener input.signinButton:hover
+{
+    transform: scale(0.95);
+    background: #14e27b;
+}
+
+.container .main .shortener input.signinButton:active
+{
+    transform: scale(0.9);
+    background: #29f18d;
+}
+
+.container .main .shortener .SigninZone{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
