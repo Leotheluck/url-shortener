@@ -12,17 +12,134 @@
     <?php
         include "./db.php";
         include "./functions.php"; 
+
+        if (!empty($_SESSION["username"])) {
+            $user_links = "";
+            $fav_links = "";
+
+            foreach($users as $user) {
+                if ($user["uid"] == $_SESSION["uid"]) {
+                    $user_links = $user["links"];
+                    $fav_links = $user["favlinks"];
+                }
+            }
+        };  
     ?>
 
     <div class="side-panel">
         <div class="hide">
             <div class="button"></div>
         </div>
-        <?php
-            // foreach(array_reverse($urls, true) as $url) {
-            //     echo "<p>wmln.me/".$url["url_code"]."</p>";
-            // };
-        ?>
+
+        <?php if(!empty($_SESSION["username"])): ?>
+            <div class="panel-content">
+                <p class="panel-welcome">Bienvenue, </br><strong><?php echo $_SESSION["username"]; ?></strong> !</p>
+                <div class="panel-menu">
+                    <p class="panel-titles">Mes liens favoris</p>
+                    <?php
+
+                        $linksfav = explode(',', $fav_links);
+                        for ($i=0; $i < count($linksfav) - 1; $i++) { 
+
+                            $url_description = "";
+                            $url_views = 0;
+                            $url_state = 1;
+
+                            foreach($urls as $url) {
+                                if ($url["url_code"] == $linksfav[$i]) { 
+                                    $url_description = $url["url"];
+                                    $url_views = $url["views"];
+                                    $url_state = $url["active"];
+                                }
+                            };
+
+                            echo '<div class="link-control">';
+                            echo '<div class="link">';
+                            echo '<a href="'.$path.$linksfav[$i].'" target="_blank" class="wmln-link" title="'.$url_description.'">wmln.me/'.$linksfav[$i].'</a>';
+                            echo '<div class="link-counter">';
+                            echo '<p>[<strong>'.$url_views.'</strong></p>';
+                            echo '<div class="eye-icon-w"></div>';
+                            echo '<p>]</p>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '<div class="commands-icons">';
+                            echo '<form class="star-icon-z icon" method="post" action="./unfavorite.db.php?linkfav='.$linksfav[$i].'">';
+                            echo '<button type="submit" class="button"></button>';
+                            echo '</form>';
+                            if ($url_state == 1) {
+                                echo '<form class="checkcase-icon-z icon" method="post" action="./active.db.php?linkact='.$linksfav[$i].'">';
+                                echo '<button type="submit" class="button"></button>';
+                                echo '</form>';
+                            } else if ($url_state == 0) {
+                                echo '<form class="checkcase-icon-w icon" method="post" action="./active.db.php?linkact='.$linksfav[$i].'">';
+                                echo '<button type="submit" class="button"></button>';
+                                echo '</form>';
+                            }
+                            echo '<div></div>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    ?>
+                    <p class="panel-titles">Mes liens</p>
+                    <?php
+
+                        $links = explode(',', $user_links);
+                        for ($i=0; $i < count($links) - 1; $i++) { 
+
+                            $isFav = false;
+
+                            foreach($linksfav as $linkfav) {
+                                if ($links[$i] == $linkfav) {
+                                    $isFav = true;
+                                }
+                            }
+
+                            if (!$isFav) {
+                                $url_description = "";
+                                $url_views = 0;
+                                $url_state = 1;
+
+                                foreach($urls as $url) {
+                                    if ($url["url_code"] == $links[$i]) { 
+                                        $url_description = $url["url"];
+                                        $url_views = $url["views"];
+                                        $url_state = $url["active"];
+                                    }
+                                };
+
+                                echo '<div class="link-control">';
+                                echo '<div class="link">';
+                                echo '<a href="'.$path.$links[$i].'" target="_blank" class="wmln-link" title="'.$url_description.'">wmln.me/'.$links[$i].'</a>';
+                                echo '<div class="link-counter">';
+                                echo '<p>[<strong>'.$url_views.'</strong></p>';
+                                echo '<div class="eye-icon-w"></div>';
+                                echo '<p>]</p>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '<div class="commands-icons">';
+                                echo '<form class="star-icon-w icon" method="post" action="./favorite.db.php?linkfav='.$links[$i].'">';
+                                echo '<button type="submit" class="button"></button>';
+                                echo '</form>';
+                                if ($url_state == 1) {
+                                    echo '<form class="checkcase-icon-z icon" method="post" action="./active.db.php?linkact='.$links[$i].'">';
+                                    echo '<button type="submit" class="button"></button>';
+                                    echo '</form>';
+                                } else if ($url_state == 0) {
+                                    echo '<form class="checkcase-icon-w icon" method="post" action="./active.db.php?linkact='.$links[$i].'">';
+                                    echo '<button type="submit" class="button"></button>';
+                                    echo '</form>';
+                                }
+                                echo '<div></div>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+
+                            
+                        }
+                    ?>
+                </div>
+            </div>
+        <?php endif ?>
     </div>
 
     <div class="container">
@@ -45,8 +162,8 @@
                     <form action="./publish.db.php" class="inputs" method="post">
                         <input class="url-input" type="text" name="url-origin" placeholder="Collez votre URL ici" value=
                             <?php
-                                if (!empty($_GET)) {
-                                    echo "localhost:8888/back-end/url-shortener/".$_GET["published"];
+                                if (!empty($_GET["published"])) {
+                                    echo $path.$_GET["published"];
                                 }
                             ?>></input>
                         <button class="submit-input" type="submit">Go !</button>

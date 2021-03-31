@@ -4,6 +4,7 @@ body
 {
     margin: 0;
     background: #FBF5F3;
+    font-family: "Inter", sans-serif;
 }
 
 ::selection
@@ -454,4 +455,216 @@ input:-webkit-autofill:active
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Side panel - François */
+
+.side-panel{
+    overflow: hidden;
+}
+
+.side-panel .panel-content{
+    margin-left: 1vw;
+    color: #FBF5F3;
+}
+
+.side-panel .panel-content .panel-welcome{
+    font-size: 35px;
+    margin-bottom: 6vh;
+}
+
+.side-panel .panel-content .panel-welcome:hover{
+    cursor: default;
+}
+
+.side-panel .panel-content .panel-titles{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.side-panel .panel-content .panel-titles:hover{
+    /* transform: translateX(0.5vw);
+    transition: .2s; */
+    cursor: default;
+}
+
+.side-panel .panel-content .link-control{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 20vw;
+}
+
+.side-panel .panel-content .link-control p{
+    margin : 5px 0 5px 0;
+}
+
+.side-panel .panel-content .link-control .link{
+    display: flex;
+    flex-direction: row;
+}
+
+.side-panel .panel-content .link-control .wmln-link{
+    margin : 5px 0 5px 0;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1vw;
+}
+
+.side-panel .panel-content .link-control .wmln-link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.side-panel .panel-content .link-control .link-counter{
+    display: flex;
+    flex-direction: row;
+}
+
+.side-panel .panel-content .link-control .link-counter .eye-icon-w{
+    width: 1.5vw;
+    margin-left: 0.5vw;
+    background-image: url("https://i.imgur.com/mEwrU3x.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+}
+
+.side-panel .panel-content .link-control .commands-icons{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.side-panel .panel-content .link-control .commands-icons .copy-icon-w{
+    width: 1vw;
+    background-image: url("https://i.imgur.com/iOr8ddO.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+}
+
+.side-panel .panel-content .link-control .commands-icons .star-icon-w{
+    width: 1.2vw;
+    background-image: url("https://i.imgur.com/L7Ci3a8.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+}
+
+.side-panel .panel-content .link-control .commands-icons .star-icon-w button
+{
+    width: 1.2vw;
+    height: 1.2vw;
+    opacity: 0%;
+    cursor: pointer;
+}
+
+.side-panel .panel-content .link-control .commands-icons .star-icon-z{
+    width: 1.2vw;
+    background-image: url("https://i.imgur.com/9vjFTeX.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+}
+
+.side-panel .panel-content .link-control .commands-icons .icon button
+{
+    width: 1.2vw;
+    height: 1.2vw;
+    opacity: 0%;
+    cursor: pointer;
+}
+
+.side-panel .panel-content .link-control .commands-icons .star-icon-z:hover{
+    background-image: url("https://i.imgur.com/L7Ci3a8.png");
+}
+
+.side-panel .panel-content .link-control .commands-icons .star-icon-w:hover{
+    background-image: url("https://i.imgur.com/9vjFTeX.png");
+}
+
+.side-panel .panel-content .link-control .commands-icons .checkcase-icon-w{
+    width: 0.9vw;
+    background-image: url("https://i.imgur.com/xBkhY45.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+}
+
+.side-panel .panel-content .link-control .commands-icons .checkcase-icon-z{
+    width: 0.9vw;
+    background-image: url("https://i.imgur.com/DIdPS38.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 100%;
+}
+
+.side-panel .panel-content .link-control .commands-icons .checkcase-icon-w:hover{
+    background-image: url("https://i.imgur.com/DIdPS38.png");
+}
+
+.side-panel .panel-content .link-control .commands-icons .checkcase-icon-z:hover{
+    background-image: url("https://i.imgur.com/xBkhY45.png");
+}
+
+.side-panel .panel-content .link-control .commands-icons .icon{
+    margin: 0 0.5vw 0 0.5vw;
+}
+
+.side-panel .panel-content .link-control .commands-icons .icon:hover{
+    cursor: pointer;
+    transform: scale(0.95);
+    transition: .2s;
+}
+
+.side-panel .panel-content .delete-all{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.side-panel .panel-content .delete-all :first-child{
+    padding-right: 0.5vw;
+}
+
+.side-panel .panel-content .delete-all :last-child:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* sidebar François */
+
+.side-panel .panel-content .panel-menu{
+    height: 70vh; /*appliquer une sidebar à une div nécessite une height définie*/
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 100px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FBF5F3;
+    border-radius: 100px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #eee9e7; 
 }

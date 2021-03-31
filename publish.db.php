@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "./db.php";
 
 $secret = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
@@ -16,12 +17,32 @@ $stmt = $pdo->prepare("
     INSERT INTO urls (url, url_code, views, active)
     VALUES(:url, :url_code, :views, :active)
 ");
+
 $stmt->execute([
     ":url" => $_POST["url-origin"],
     ":url_code" => $code,
     ":views" => 0,
     ":active" => true
 ]);
+
+$newLink = "";
+
+foreach($users as $user) {
+    if ($user["uid"] == $_SESSION["uid"]) {
+        $newLink = $user["links"].$code.",";
+    }
+}
+
+$stmt = $pdo->prepare("
+    UPDATE userbase
+    SET links = :newLink
+    WHERE uid = :userID
+");
+
+$stmt->execute([
+    ":newLink" => $newLink,
+    ":userID" => $_SESSION["uid"],
+]);  
 
 header("Location: ./?published=".$code)
 

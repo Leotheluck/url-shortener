@@ -2,15 +2,6 @@
 // Including database basics
     include "./db.php";
 
-// Loading Data
-    $stmt = $pdo->prepare("
-        SELECT * 
-        FROM userbase
-        ");
-    $stmt->execute();
-
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 // Getting inputs from $_POST
     $uid = $_POST["username"];
     $pw = $_POST["password"];

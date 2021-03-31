@@ -1,13 +1,6 @@
 <?php
     include "./db.php";
 
-    $stmt = $pdo->prepare("
-        SELECT * 
-        FROM urls
-        ");
-    $stmt->execute();
-    $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     $destination = "";
     $urlID = -1;
     $urlViewsCalc = 0;
