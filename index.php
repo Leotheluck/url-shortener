@@ -33,6 +33,11 @@
                         <input type="submit" value="Se déconnecter"></input>
                     </form>
                 <?php endif ?>
+                <?php if(empty($_SESSION["username"])): ?>
+                    <div class="information">
+                        <h4>Connexion</h4>
+                    </div>
+                <?php endif ?>
             </div>
             <?php if(!empty($_SESSION["username"])): ?>
                 <div class="shortener">

@@ -48,7 +48,21 @@ body
     color: #d34161;
     cursor: pointer;
     transition: .3s;
+    outline: none;
 }
+
+.container .main .header .information h4
+{
+    background: none;
+    border: none;
+    margin-right: 30px;
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    opacity: 100%;
+    color: #d34161;
+}
+
 
 .container .main .header .disconnect input:hover
 {

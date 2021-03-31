@@ -37,20 +37,20 @@
     <div class="container">
         <div class="main">
             <div class="header">
-                <form class="disconnect" method="post">
-                    <input type="submit" value="Inscription"></input>
-                </form>
+                <div class="information">
+                    <h4>Inscription</h4>
+                </div>
             </div>
             <div class="shortener">
                 <a href="" class="logo"></a>
                 <form action="./signup.db.php" method="POST" class="SigninPage">
-                    <input type="text" name="username" id="username" placeholder="Nom d'utiliseur" />
+                    <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" />
 
-                    <input type="text" name="mail" id="mail" placeholder="E-mail" required />
+                    <input type="text" name="mail" id="mail" placeholder="Adresse mail" required />
                     
                     <input type="password" name="password" id="password" placeholder="Mot de passe" required />
 
-                    <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirmer" required />
+                    <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirmer le mot de passe" required />
 
                     <div class="SigninZone">
                         <a href="./" class="logLink">Déjà inscrit ? Se connecter</a>
