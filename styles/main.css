@@ -668,3 +668,72 @@ input:-webkit-autofill:active
 ::-webkit-scrollbar-thumb:hover {
     background: #eee9e7; 
 }
+
+.container .main .shortener .inputs .reset-input
+{
+    width: 40px;
+    height: 40px;
+    background: #00CC66;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity .2s transform .2s background .2s;
+}
+
+.container .main .shortener .inputs .reset-input img
+{
+    width: 15px;
+}
+
+.container .main .shortener .inputs .copy-input
+{
+    width: 40px;
+    height: 40px;
+    background: #b4b4b4;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity .2s transform .2s background .2s;
+}
+
+.container .main .shortener .inputs .copy-input img{
+    width: 15px;
+}
+
+.container .main .shortener .inputs .copy-input:hover
+{
+    transform: scale(0.95);
+    background: #14e27b;
+}
+
+.container .main .shortener .inputs .copy-input:active
+{
+    background: #00CC66;
+}
+
+.container .main .shortener .inputs .reset-input:active
+{
+    background: #00CC66;
+}
+
+.container .main .shortener .inputs .reset-input:hover
+{
+    transform: scale(0.9);
+    background: #29f18d;
+}

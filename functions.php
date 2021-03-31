@@ -27,13 +27,13 @@
         echo "<div class='popup'>Lien retiré des favoris !</div>";
         } else if ($_GET["popup"] == "changed-par") {
         echo "<div class='popup'>Paramètres changés !</div>";
-        } else if ($_GET["popup"] == "copied-link") {
-        echo "<div class='popup'>Lien copié dans le presse-papier !</div>";
-        }
+        } else if ($_GET["popup"] == "emptied") {
+            echo "<div class='popup'>Réinitialisé !</div>";
+            }
     }
 
     if (!empty($_GET["published"])) {
-        echo "<div class='popup'>Lien copié dans le presse-papier !</div>";
+        echo "<div class='popup'>Lien publié !</div>";
     }
 
     if (isset($_GET["url"])) {

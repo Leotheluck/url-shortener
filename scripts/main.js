@@ -21,3 +21,15 @@ sidePanelButton.addEventListener('click', () => {
         shortener.style.marginRight = "25vw"   
     }
 })
+
+const copyUrl = document.querySelector(".url-input");
+const link = document.querySelector(".test")
+
+const copyClipBoard = () => 
+{
+    copyUrl.select();
+    copyUrl.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+}
+
+link.addEventListener('click', copyClipBoard)

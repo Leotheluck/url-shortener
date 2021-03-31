@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMLN®</title>
     <meta name="description" content="free url stuff for my very short friends">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
@@ -30,6 +31,32 @@
         <div class="hide">
             <div class="button"></div>
         </div>
+
+        <?php if(empty($_SESSION["username"])): ?>
+            <div class="panel-content">
+                <p class="panel-welcome">Bienvenue !</p>
+                <div class="panel-menu">
+                    <p class="panel-titles">Derniers liens créés</p>
+                    <?php
+
+                        foreach(array_reverse($urls, true) as $url) {
+                            echo '<div class="link-control">';
+                            echo '<div class="link">';
+                            echo '<a href="'.$path.$url["url_code"].'" target="_blank" class="wmln-link" title="'.$url["url"].'">wmln.me/'.$url["url_code"].'</a>';
+                            echo "</div>";
+                            echo "</div>";
+                        };
+
+                    ?>
+                </div>
+            </div>
+        <?php
+            // foreach(array_reverse($urls, true) as $url) {
+            //     echo "<p>wmln.me/".$url["url_code"]."</p>";
+            // };
+        ?>
+    </div>
+        <?php endif ?>
 
         <?php if(!empty($_SESSION["username"])): ?>
             <div class="panel-content">
@@ -158,16 +185,26 @@
             </div>
             <?php if(!empty($_SESSION["username"])): ?>
                 <div class="shortener">
-                    <a href="" class="logo"></a>
-                    <form action="./publish.db.php" class="inputs" method="post">
+                <a href="" class="logo"></a>
+                <?php if(empty($_GET["published"])): ?>
+                        <form action="./publish.db.php" class="inputs" method="post">
+                            <input class="url-input" type="text" name="url-origin" placeholder="Collez votre URL ici" value=""></input>
+                            <button class="submit-input" type="submit">Go !</button>
+                        </form>
+                <?php endif ?>
+                <?php if(!empty($_GET["published"])): ?>
+                    <div class="inputs">
                         <input class="url-input" type="text" name="url-origin" placeholder="Collez votre URL ici" value=
                             <?php
-                                if (!empty($_GET["published"])) {
-                                    echo $path.$_GET["published"];
-                                }
-                            ?>></input>
-                        <button class="submit-input" type="submit">Go !</button>
-                    </form>
+                                echo $path.$_GET["published"];
+                            ?>>
+                            </input>
+                        <button class="test copy-input"><img src="https://i.imgur.com/iOr8ddO.png" alt="Icone Copier"></button>
+                        <form method="post" action="./empty.db.php">
+                            <button class="reset-input" type="submit"><img src="https://i.imgur.com/2rVrfjt.png" alt="Icone Réinitialiser"></button>
+                        </form>
+                    </div>
+                <?php endif ?>
                 </div>
             <?php endif ?>
             <?php if(empty($_SESSION["username"])): ?>
